@@ -12,7 +12,7 @@ app.use(express.json());
 
 // PostgreSQL connection
 const pool = new Pool({
-  connectionString: 'your_connection_string_here',
+  connectionString: 'postgresql://ks_user:Pg6s7ATF979crVWlRSwsj03Z7pYFunnF@dpg-d095jr3ipnbc7398corg-a/ks_milk_db',
   ssl: { rejectUnauthorized: false }
 });
 
