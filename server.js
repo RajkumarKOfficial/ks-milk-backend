@@ -16,6 +16,22 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
+
+
+// --------------------------------------------------- EXcel Connection -----------------------------------------------------------
+// API endpoint to fetch all orders
+app.get('/orders', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM orders ORDER BY id DESC');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Error fetching orders');
+  }
+});
+
+
+
 // API endpoint for placing order
 app.post('/order', async (req, res) => {
   const { customerName, address, landmark, quantity } = req.body; // add landmark here
